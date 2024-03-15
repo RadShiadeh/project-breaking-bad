@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Product from "./product";
-import { Flex } from "@chakra-ui/react";
+import { Box, Grid, Skeleton, VStack } from "@chakra-ui/react";
 import Item from "./ItemInterface";
 
 const products: Item[] = [
@@ -19,12 +19,26 @@ const products: Item[] = [
 ];
 
 const Products: React.FC = () => {
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 2000)
+    }, [])
+
     return (
-        <Flex>
-            {products.map((inventoryItems) => (
-                <Product key={inventoryItems.Id.toString()} item={inventoryItems}/>
+        <Grid templateColumns={{sm: "repeat(1, 1fr)", md: "repeat(3, 1fr)"}} gap={1} columnGap={1}>
+            {isLoading && products.map((inventoryItems, idx) => (
+                <VStack key={idx} alignItems={"flex-start"}>
+                    <Skeleton w={"full"}>
+                        <Box h={"300px"}>
+                            <Product key={inventoryItems.Id.toString()} item={inventoryItems}/>
+                        </Box>
+                    </Skeleton>
+                </VStack>
             ))}
-        </Flex>
+        </Grid>
     )
 }
 
