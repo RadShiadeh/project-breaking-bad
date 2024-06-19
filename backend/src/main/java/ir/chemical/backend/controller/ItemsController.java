@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -78,6 +79,26 @@ public class ItemsController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } else {
             return itemsRepository.updateByName(item, name);
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable long id) {
+        Optional<Items> found = itemsRepository.findById(id);
+        if (found.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } else {
+            itemsRepository.deleteById(id);
+        }
+    }
+
+    @DeleteMapping("/delete/{name}")
+    public void deleteByName(@PathVariable String name) {
+        Optional<Items> found = itemsRepository.findByName(name);
+        if (found.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } else {
+            itemsRepository.deleteByName(name);
         }
     }
 }

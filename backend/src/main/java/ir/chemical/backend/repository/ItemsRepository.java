@@ -52,6 +52,14 @@ public class ItemsRepository {
         return existingItem;
     }
 
+    public void deleteById(long id) {
+        items.removeIf(item -> item.getId() == id);
+    }
+
+    public void deleteByName(String name) {
+        items.removeIf(item -> item.getName().equals(name));
+    }
+
     @PostConstruct
     public void init() {
         items.add(new Items(1, "n1", "d1", "t1", "i1"));
