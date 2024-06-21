@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import ir.chemical.backend.model.Items;
 import ir.chemical.backend.repository.ItemsRepository;
+
 
 
 @RestController
@@ -41,9 +43,9 @@ public class ItemsController {
             return found.get();
         }
     }
-
+    
     @GetMapping("name/{name}")
-    public Items findByName(@PathVariable String name) {
+    public Items getMethodName(@PathVariable String name) {
         Optional<Items> found = itemsRepository.findByName(name);
         if (found.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -51,54 +53,32 @@ public class ItemsController {
             return found.get();
         }
     }
+    
 
     @PostMapping("")
     public void createNewItem(@RequestBody Items item) {
-        Optional<Items> found = itemsRepository.findById(item.getId());
-        if (found.isEmpty()) {
-            itemsRepository.create(item);
-        } else {
-            throw new ResponseStatusException(HttpStatus.CONFLICT);
-        }
+        itemsRepository.create(item);
     }
 
-    @PutMapping("update/{id}")
-    public Items updateByID(@RequestBody Items item, @PathVariable long id) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("{id}")
+    public void updateByID(@RequestBody Items item, @PathVariable long id) {
         Optional<Items> found = itemsRepository.findById(id);
         if (found.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } else {
-            return itemsRepository.updateById(item, id);
-        }
-    }
-
-    @PutMapping("update/name/{name}")
-    public Items updateByName(@RequestBody Items item, @PathVariable String name) {
-        Optional<Items> found = itemsRepository.findByName(name);
-        if (found.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        } else {
-            return itemsRepository.updateByName(item, name);
+            itemsRepository.updateByID(id, item);
         }
     }
 
     @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable long id) {
         Optional<Items> found = itemsRepository.findById(id);
         if (found.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } else {
             itemsRepository.deleteById(id);
-        }
-    }
-
-    @DeleteMapping("/delete/{name}")
-    public void deleteByName(@PathVariable String name) {
-        Optional<Items> found = itemsRepository.findByName(name);
-        if (found.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        } else {
-            itemsRepository.deleteByName(name);
         }
     }
 }

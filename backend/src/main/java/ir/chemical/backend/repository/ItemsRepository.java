@@ -1,69 +1,53 @@
 package ir.chemical.backend.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.Assert;
 
 import ir.chemical.backend.model.Items;
-import jakarta.annotation.PostConstruct;
 
 @Repository
 public class ItemsRepository {
-    private List<Items> items = new ArrayList<>(); // in mem database for testing
+    private final JdbcClient jdbcClient;
 
-    public ItemsRepository(List<Items> items) {
-        this.items = items;
+    public ItemsRepository(JdbcClient jdbcClient) {
+        this.jdbcClient = jdbcClient;
     }
 
     public List<Items> getAll() {
-        return items;
+        return jdbcClient.sql("select * from items").query(Items.class).list();        
     }
 
     public Optional<Items> findById(long id) {
-        return items.stream().filter(item -> item.getId() == id).findFirst();
+        return jdbcClient.sql("SELECT * from items where id = :id").param("id", id).query(Items.class).optional();
     }
 
-    public Optional<Items> findByName(String name) {
-        return items.stream().filter(item -> (item.getName() == null ? name == null : item.getName().equals(name))).findFirst();
-    }
-
-    //post
     public void create(Items item) {
-        items.add(item);
-    }
-
-    public Items updateById(Items item, long id) {
-        Items existingItem = items.stream().filter(i -> i.getId() == id).findFirst().get();
-        existingItem.setName(item.getName());
-        existingItem.setDescription(item.getDescription());
-        existingItem.setType(item.getType());
-        existingItem.setImageURL(item.getImageURL());
-        return existingItem;
-    }
-
-    public Items updateByName(Items item, String name) {
-        Items existingItem = items.stream().filter(i -> (i.getName() == null ? name == null : item.getName().equals(name))).findFirst().get();
-        existingItem.setName(item.getName());
-        existingItem.setDescription(item.getDescription());
-        existingItem.setType(item.getType());
-        existingItem.setImageURL(item.getImageURL());
-        return existingItem;
+        var updated = jdbcClient.sql("INSERT INTO ITEMS(id, name, description, type, imageURL) Values(?,?,?,?,?)")
+        .params(List.of(item.getId(), item.getName(), item.getDescription(), item.getType(), item.getImageURL()))
+        .update();
+        
+        Assert.state(updated == 1, "failed to insert item: " + item.getName());
     }
 
     public void deleteById(long id) {
-        items.removeIf(item -> item.getId() == id);
+        var updated = jdbcClient.sql("DELETE FROM ITEMS WHERE id = :id").param("id", id).update();
+
+        Assert.state(updated == 1, "delete failed, item id: " + id);
     }
 
-    public void deleteByName(String name) {
-        items.removeIf(item -> item.getName().equals(name));
-    }
+    public void updateByID(long id, Items item) {
+        var updated = jdbcClient.sql("UPDATE ITEMS set name = ?, description = ?, type = ?, imageURL = ? WHERE id = ?")
+        .params(List.of(item.getName(), item.getDescription(), item.getType(), item.getImageURL(), id))
+        .update();
 
-    @PostConstruct
-    public void init() {
-        items.add(new Items(1, "n1", "d1", "t1", "i1"));
-        items.add(new Items(2, "n2", "d2", "t2", "i2"));
-        items.add(new Items(3, "n3", "d3", "t3", "i3"));
+        Assert.state(updated == 1, "failed to update item id: " + item.getId());
+    }
+    
+    public Optional<Items> findByName(String name) {
+        return jdbcClient.sql("SELECT * from items where name = :name").param("name", name).query(Items.class).optional();
     }
 }
