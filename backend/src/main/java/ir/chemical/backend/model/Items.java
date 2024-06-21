@@ -8,19 +8,31 @@ import jakarta.persistence.GenerationType;
 public class Items {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private static long id;
+    private long id;
     private String name;
     private String description;
     private String type;
     private String imageURL;
+
+    public Items(long id, String name, String description, String type, String imageURL) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.type = type;
+        this.imageURL = imageURL;
+    }
     
     
-    public static long getId() {
+    public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
@@ -28,7 +40,7 @@ public class Items {
     }
 
     public String getDescription() {
-        return this.description;
+        return description;
     }
 
     public void setDescription(String description) {
@@ -36,7 +48,7 @@ public class Items {
     }
 
     public String getType() {
-        return this.type;
+        return type;
     }
 
     public void setType(String type) {
@@ -44,7 +56,7 @@ public class Items {
     }
 
     public String getImageURL() {
-        return this.imageURL;
+        return imageURL;
     }
 
     public void setImageURL(String imageURL) {
