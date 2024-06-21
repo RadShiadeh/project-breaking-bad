@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS Items (
+    id INT NOT NULL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    type VARCHAR(255) NOT NULL,
+    imageURL VARCHAR(255)
+);
