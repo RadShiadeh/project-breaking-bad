@@ -13,6 +13,10 @@ import ir.chemical.backend.model.Items;
 public class ItemsRepository {
     private final JdbcClient jdbcClient;
 
+    public int count() {
+        return jdbcClient.sql("select count(*) from items").query(Integer.class).single();
+    }
+
     public ItemsRepository(JdbcClient jdbcClient) {
         this.jdbcClient = jdbcClient;
     }
@@ -49,5 +53,9 @@ public class ItemsRepository {
     
     public Optional<Items> findByName(String name) {
         return jdbcClient.sql("SELECT * from items where name = :name").param("name", name).query(Items.class).optional();
+    }
+
+    public void saveAll(List<Items> items) {
+        items.stream().forEach(this::create);
     }
 }
