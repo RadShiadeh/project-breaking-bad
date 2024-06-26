@@ -30,7 +30,7 @@ public class ItemsJsonDataloader implements CommandLineRunner {
         if (itemsRepository.count() == 0) {
             try (InputStream inputStream = TypeReference.class.getResourceAsStream("/data/items.json")) {
                 ItemsRecord allItems = objectMapper.readValue(inputStream, ItemsRecord.class);
-                log.info("Reading {} items from items.json", allItems.items().size());
+                log.info("Reading {} items from items.json and saving to a db", allItems.items().size());
                 itemsRepository.saveAll(allItems.items());                
             } catch (IOException e) {
                 throw new RuntimeException("Failed to save all items", e);
