@@ -35,7 +35,9 @@ public class ItemsJsonDataloader implements CommandLineRunner {
             } catch (IOException e) {
                 throw new RuntimeException("Failed to save all items", e);
             }
+        } else {
+            log.info("play data already loaded");   
         }
-        }
-        
     }
+        
+}
