@@ -13,6 +13,14 @@ import ir.chemical.backend.model.Items;
 public class ItemsRepository {
     private final JdbcClient jdbcClient;
 
+    public int count() {
+        return jdbcClient.sql("select count(*) from items").query(Integer.class).single();
+    }
+
+    public void saveAll(List<Items> items) {
+        items.stream().forEach(this::create);
+    }
+
     public ItemsRepository(JdbcClient jdbcClient) {
         this.jdbcClient = jdbcClient;
     }

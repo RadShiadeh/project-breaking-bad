@@ -29,11 +29,6 @@ public class ItemsController {
         this.itemsRepository = itemsRepository;
     }
 
-    @PostMapping("")
-    public void createNewItem(@RequestBody Items item) {
-        itemsRepository.create(item);
-    }
-
     @GetMapping("")
     public List<Items> findAll() {
         return itemsRepository.getAll();
@@ -58,6 +53,12 @@ public class ItemsController {
             return found.get();
         }
     }
+    
+
+    @PostMapping("")
+    public void createNewItem(@RequestBody Items item) {
+        itemsRepository.create(item);
+    }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("{id}")
@@ -70,17 +71,6 @@ public class ItemsController {
         }
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("name/{name}")
-    public void updateByName(@RequestBody Items item, @PathVariable String name) {
-        Optional<Items> found = itemsRepository.findByName(name);
-        if (found.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        } else {
-            itemsRepository.updateByID(item.getId(), item);
-        }
-    }
-
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable long id) {
@@ -89,17 +79,6 @@ public class ItemsController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } else {
             itemsRepository.deleteById(id);
-        }
-    }
-    
-    @DeleteMapping("name/{name}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteByName(@PathVariable String name) {
-        Optional<Items> found = itemsRepository.findByName(name);
-        if (found.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        } else {
-            itemsRepository.deleteById(found.get().getId());
         }
     }
 }
