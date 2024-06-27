@@ -26,7 +26,7 @@ public class ItemsRepository {
     }
 
     public List<Items> getAll() {
-        return jdbcClient.sql("select * from items").query(Items.class).list();        
+        return jdbcClient.sql("select * from items").query(Items.class).list();
     }
 
     public Optional<Items> findById(long id) {
@@ -35,9 +35,10 @@ public class ItemsRepository {
 
     public void create(Items item) {
         var updated = jdbcClient.sql("INSERT INTO ITEMS(id, name, description, type, imageURL) Values(?,?,?,?,?)")
-        .params(List.of(item.getId(), item.getName(), item.getDescription(), item.getType(), item.getImageURL()))
-        .update();
-        
+                .params(List.of(item.getId(), item.getName(), item.getDescription(), item.getType(),
+                        item.getImageURL()))
+                .update();
+
         Assert.state(updated == 1, "failed to insert item: " + item.getName());
     }
 
@@ -49,13 +50,18 @@ public class ItemsRepository {
 
     public void updateByID(long id, Items item) {
         var updated = jdbcClient.sql("UPDATE ITEMS set name = ?, description = ?, type = ?, imageURL = ? WHERE id = ?")
-        .params(List.of(item.getName(), item.getDescription(), item.getType(), item.getImageURL(), id))
-        .update();
+                .params(List.of(item.getName(), item.getDescription(), item.getType(), item.getImageURL(), id))
+                .update();
 
         Assert.state(updated == 1, "failed to update item id: " + item.getId());
     }
-    
+
     public Optional<Items> findByName(String name) {
-        return jdbcClient.sql("SELECT * from items where name = :name").param("name", name).query(Items.class).optional();
+        return jdbcClient.sql("SELECT * from items where name = :name").param("name", name).query(Items.class)
+                .optional();
+    }
+
+    public List<Items> findByType(String type) {
+        return jdbcClient.sql("SELECT * FROM ITEMS WHERE TYPE = :type").param("type", type).query(Items.class).list();
     }
 }

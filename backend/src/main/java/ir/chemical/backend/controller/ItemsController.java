@@ -17,8 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import ir.chemical.backend.model.Items;
 import ir.chemical.backend.repository.ItemsRepository;
-
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/items")
@@ -43,9 +42,9 @@ public class ItemsController {
             return found.get();
         }
     }
-    
+
     @GetMapping("name/{name}")
-    public Items getMethodName(@PathVariable String name) {
+    public Items findByName(@PathVariable String name) {
         Optional<Items> found = itemsRepository.findByName(name);
         if (found.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -53,7 +52,12 @@ public class ItemsController {
             return found.get();
         }
     }
-    
+
+    @GetMapping("type/{type}")
+    public List<Items> findAllByType(@PathVariable String type) {
+        return itemsRepository.findByType(type);
+
+    }
 
     @PostMapping("")
     public void createNewItem(@RequestBody Items item) {
