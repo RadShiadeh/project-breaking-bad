@@ -17,7 +17,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import ir.chemical.backend.model.Items;
 import ir.chemical.backend.repository.ItemsRepository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/items")
@@ -56,7 +55,6 @@ public class ItemsController {
     @GetMapping("type/{type}")
     public List<Items> findAllByType(@PathVariable String type) {
         return itemsRepository.findByType(type);
-
     }
 
     @PostMapping("")

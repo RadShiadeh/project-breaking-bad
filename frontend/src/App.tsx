@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import About from './pages/About'
 import PageLayout from './components/pageLayout'
 import ProductsPage from './pages/productsPage'
+import 'bootstrap';
 
 function App() {
 

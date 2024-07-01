@@ -1,8 +1,9 @@
 interface Item {
     Id: Number,
     name: string,
-    image: string,
-    description: string
+    description: string,
+    type: string,
+    imageURL: string
 }
 
 export default Item;

@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Lob;
 
 public class Items {
     @Id
@@ -13,13 +14,16 @@ public class Items {
     private String description;
     private String type;
     private String imageURL;
+    @Lob
+    private byte[] image;
 
-    public Items(long id, String name, String description, String type, String imageURL) {
+    public Items(long id, String name, String description, String type, String imageURL, byte[] image) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.type = type;
         this.imageURL = imageURL;
+        this.image = image;
     }
     
     
@@ -61,5 +65,13 @@ public class Items {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public byte[] getImage() {
+        return this.image;
     }
 }
