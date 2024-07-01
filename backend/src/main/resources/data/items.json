@@ -1,143 +1,74 @@
 {"items" :[
-    {
+  {
       "id": 1,
-      "name": "n1",
-      "description": "d1",
-      "type": "t1",
-      "imageURL": "i1"
-    },
-    {
+      "name": "Vintage Camera",
+      "description": "A classic vintage camera for photography enthusiasts.",
+      "type": "Photography",
+      "imageURL": "https://example.com/images/vintage_camera.jpg"
+  },
+  {
       "id": 2,
-      "name": "n2",
-      "description": "d2",
-      "type": "t2",
-      "imageURL": "i2"
-    },
-    {
+      "name": "Bluetooth Speaker",
+      "description": "A portable Bluetooth speaker with high-quality sound.",
+      "type": "Audio",
+      "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
+  },
+  {
       "id": 3,
-      "name": "n3",
-      "description": "d3",
-      "type": "t3",
-      "imageURL": "i3"
-    },
-    {
+      "name": "Smart Watch",
+      "description": "A sleek smart watch with fitness tracking features.",
+      "type": "Wearable",
+      "imageURL": "https://example.com/images/smart_watch.jpg"
+  },
+  {
       "id": 4,
-      "name": "n4",
-      "description": "d4",
-      "type": "t4",
-      "imageURL": "i4"
-    },
-    {
+      "name": "Wireless Headphones",
+      "description": "Noise-cancelling wireless headphones for immersive sound.",
+      "type": "Audio",
+      "imageURL": "https://example.com/images/wireless_headphones.jpg"
+  },
+  {
       "id": 5,
-      "name": "n5",
-      "description": "d5",
-      "type": "t5",
-      "imageURL": "i5"
-    },
-    {
+      "name": "Gaming Laptop",
+      "description": "A high-performance gaming laptop for serious gamers.",
+      "type": "Computers",
+      "imageURL": "https://example.com/images/gaming_laptop.jpg"
+  },
+  {
       "id": 6,
-      "name": "n6",
-      "description": "d6",
-      "type": "t6",
-      "imageURL": "i6"
-    },
-    {
+      "name": "Electric Guitar",
+      "description": "A premium electric guitar with excellent sound quality.",
+      "type": "Musical Instruments",
+      "imageURL": "https://example.com/images/electric_guitar.jpg"
+  },
+  {
       "id": 7,
-      "name": "n7",
-      "description": "d7",
-      "type": "t7",
-      "imageURL": "i7"
-    },
-    {
+      "name": "4K Ultra HD TV",
+      "description": "A large 4K Ultra HD TV with stunning picture quality.",
+      "type": "Electronics",
+      "imageURL": "https://example.com/images/4k_tv.jpg"
+  },
+  {
       "id": 8,
-      "name": "n8",
-      "description": "d8",
-      "type": "t8",
-      "imageURL": "i8"
-    },
-    {
+      "name": "Smartphone",
+      "description": "A latest-generation smartphone with advanced features.",
+      "type": "Mobile",
+      "imageURL": "https://example.com/images/smartphone.jpg"
+  },
+  {
       "id": 9,
-      "name": "n9",
-      "description": "d9",
-      "type": "t9",
-      "imageURL": "i9"
-    },
-    {
+      "name": "Digital Piano",
+      "description": "A digital piano with realistic sound and feel.",
+      "type": "Musical Instruments",
+      "imageURL": "https://example.com/images/digital_piano.jpg"
+  },
+  {
       "id": 10,
-      "name": "n10",
-      "description": "d10",
-      "type": "t10",
-      "imageURL": "i10"
-    },
-    {
-      "id": 11,
-      "name": "n11",
-      "description": "d11",
-      "type": "t11",
-      "imageURL": "i11"
-    },
-    {
-      "id": 12,
-      "name": "n12",
-      "description": "d12",
-      "type": "t12",
-      "imageURL": "i12"
-    },
-    {
-      "id": 13,
-      "name": "n13",
-      "description": "d13",
-      "type": "t13",
-      "imageURL": "i13"
-    },
-    {
-      "id": 14,
-      "name": "n14",
-      "description": "d14",
-      "type": "t14",
-      "imageURL": "i14"
-    },
-    {
-      "id": 15,
-      "name": "n15",
-      "description": "d15",
-      "type": "t15",
-      "imageURL": "i15"
-    },
-    {
-      "id": 16,
-      "name": "n16",
-      "description": "d16",
-      "type": "t16",
-      "imageURL": "i16"
-    },
-    {
-      "id": 17,
-      "name": "n17",
-      "description": "d17",
-      "type": "t17",
-      "imageURL": "i17"
-    },
-    {
-      "id": 18,
-      "name": "n18",
-      "description": "d18",
-      "type": "t18",
-      "imageURL": "i18"
-    },
-    {
-      "id": 19,
-      "name": "n19",
-      "description": "d19",
-      "type": "t19",
-      "imageURL": "i19"
-    },
-    {
-      "id": 20,
-      "name": "n20",
-      "description": "d20",
-      "type": "t20",
-      "imageURL": "i20"
-    }
-  ]
+      "name": "Drone",
+      "description": "A high-end drone with camera for aerial photography.",
+      "type": "Gadgets",
+      "imageURL": "https://example.com/images/drone.jpg"
+  }
+]
+
 }
