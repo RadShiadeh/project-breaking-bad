@@ -4,70 +4,70 @@
       "name": "Vintage Camera",
       "description": "A classic vintage camera for photography enthusiasts.",
       "type": "Photography",
-      "imageURL": "https://example.com/images/vintage_camera.jpg"
+      "imageURL": "images/cam.jpeg"
   },
   {
       "id": 2,
       "name": "Bluetooth Speaker",
       "description": "A portable Bluetooth speaker with high-quality sound.",
       "type": "Audio",
-      "imageURL": "https://example.com/images/bluetooth_speaker.jpg"
+      "imageURL": "images/bluetoothSpeaker.jpeg"
   },
   {
       "id": 3,
       "name": "Smart Watch",
       "description": "A sleek smart watch with fitness tracking features.",
       "type": "Wearable",
-      "imageURL": "https://example.com/images/smart_watch.jpg"
+      "imageURL": "images/smartwatch.jpeg"
   },
   {
       "id": 4,
       "name": "Wireless Headphones",
       "description": "Noise-cancelling wireless headphones for immersive sound.",
       "type": "Audio",
-      "imageURL": "https://example.com/images/wireless_headphones.jpg"
+      "imageURL": "images/WirelessHeadphone.jpg"
   },
   {
       "id": 5,
       "name": "Gaming Laptop",
       "description": "A high-performance gaming laptop for serious gamers.",
       "type": "Computers",
-      "imageURL": "https://example.com/images/gaming_laptop.jpg"
+      "imageURL": "images/GamingLaptop.jpg"
   },
   {
       "id": 6,
       "name": "Electric Guitar",
       "description": "A premium electric guitar with excellent sound quality.",
       "type": "Musical Instruments",
-      "imageURL": "https://example.com/images/electric_guitar.jpg"
+      "imageURL": "images/ElectricGuitar.jpg"
   },
   {
       "id": 7,
       "name": "4K Ultra HD TV",
       "description": "A large 4K Ultra HD TV with stunning picture quality.",
       "type": "Electronics",
-      "imageURL": "https://example.com/images/4k_tv.jpg"
+      "imageURL": "images/4KUltraHDTV.jpeg"
   },
   {
       "id": 8,
       "name": "Smartphone",
       "description": "A latest-generation smartphone with advanced features.",
       "type": "Mobile",
-      "imageURL": "https://example.com/images/smartphone.jpg"
+      "imageURL": "images/Smartphone.jpeg"
   },
   {
       "id": 9,
       "name": "Digital Piano",
       "description": "A digital piano with realistic sound and feel.",
       "type": "Musical Instruments",
-      "imageURL": "https://example.com/images/digital_piano.jpg"
+      "imageURL": "images/DigitalPiano.jpg"
   },
   {
       "id": 10,
       "name": "Drone",
       "description": "A high-end drone with camera for aerial photography.",
       "type": "Gadgets",
-      "imageURL": "https://example.com/images/drone.jpg"
+      "imageURL": "images/Drone.jpeg"
   }
 ]
 

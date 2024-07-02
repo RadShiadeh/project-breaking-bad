@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Product from "./Product";
+import Product from "./product";
 import { Box, Grid, Skeleton, VStack } from "@chakra-ui/react";
 import axiosInstance from "../api/axiosConfig";
 import Item from "./ItemInterface";
