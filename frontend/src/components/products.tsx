@@ -36,7 +36,7 @@ const Products: React.FC = () => {
                 ))
             ) : (
                 products.map((item) => (
-                    <Product key={item.name} item={item} />
+                    <Product key={item.name} item={item}/>
                 ))
             )}
         </Grid>
