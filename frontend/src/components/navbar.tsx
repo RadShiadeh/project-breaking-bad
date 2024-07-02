@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 const Navbar:React.FC = () => {
     return (
         <ChakraProvider>
-            <Flex gap={4}>
+            <Flex gap={3} alignItems='center' justifyContent={"center"}>
                 <Link to={"/"}>
                     <Button colorScheme={"blue"} size={"sm"} fontWeight={"bold"}>
                         Home
                     </Button>
-                </Link>
+                </Link> 
                 <Link to={"/about"}>
                     <Button colorScheme={"blue"} size={"sm"} fontWeight={"bold"}>
                         About us
