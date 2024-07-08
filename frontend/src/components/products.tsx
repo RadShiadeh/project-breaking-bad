@@ -24,7 +24,7 @@ const Products: React.FC = () => {
     }, []);
     
     return (
-        <Grid templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(4, 1fr)" }} gap={10} width={"100%"} bg={"black"}>
+        <Grid templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(5, 1fr)" }} gap={4} width={"100%"}>
             {isLoading ? (
                 <Stack align={"center"}>
                     <Skeleton height='20px' size={'lg'}/>

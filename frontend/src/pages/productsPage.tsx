@@ -5,7 +5,7 @@ import Products from "../components/products";
 
 const ProductsPage:React.FC = () => {
     return(
-        <Container maxW={"full"}>
+        <Container maxW={"auto"} mt={2} marginRight={2} marginLeft={4}>
             <Products/>
         </Container>
     )

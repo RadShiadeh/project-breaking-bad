@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import About from './pages/About';
 import PageLayout from './components/pageLayout';
 import ProductsPage from './pages/productsPage';
+import ItemPage from './pages/itemPage';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
           <Route path='/' element={<HomePage/>}></Route>
           <Route path='/about' element={<About/>}/>
           <Route path='/products' element={<ProductsPage/>}/>
+          <Route path='/products/:item' element={<ItemPage/>}/>
         </Routes>
       </PageLayout>
   )
