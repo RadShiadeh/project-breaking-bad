@@ -1,4 +1,4 @@
-import { Container, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Container, Heading, Image, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Item from "../components/ItemInterface";
 import axiosInstance from "../api/axiosConfig";
@@ -28,12 +28,14 @@ const SingleItem: React.FC = () => {
         return <Text>Loading...</Text>;
     }
 
-    console.log(item.imageURL)
+    console.log(item)
 
     return (
         <Container maxW={"full"}>
             <Heading> {item.name} </Heading>
-            <Image src={item.imageURL} alt={item.description}></Image>
+            <Box>
+                <Image src={`/${item.imageURL}`} borderRadius={"lg"} h={300} w={600} />
+            </Box>
             <Text>{item.type}</Text>
             <Text>{item.description}</Text>
         </Container>
