@@ -1,16 +1,16 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import React from "react";
 import Navbar from "./navbar";
 
 
 const PageLayout:React.FC<{children: React.ReactNode}> = ({ children }) => {
     return (
-        <Flex flexDirection={"column"}>
+        <VStack>
             <Navbar/>
-            <Box mt={4}>
+            <Box>
                 {children}
             </Box>
-        </Flex>
+        </VStack>
     )
 }
 

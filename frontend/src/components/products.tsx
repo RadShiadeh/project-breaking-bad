@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Product from "./product";
-import { Box, Grid, Skeleton, VStack } from "@chakra-ui/react";
+import { Grid, Skeleton, Stack } from "@chakra-ui/react";
 import axiosInstance from "../api/axiosConfig";
 import Item from "./ItemInterface";
 
@@ -22,18 +22,13 @@ const Products: React.FC = () => {
 
         fetchProducts();
     }, []);
-
     
     return (
-        <Grid templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }} gap={4}>
+        <Grid templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }} gap={10}>
             {isLoading ? (
-                products.map((_, idx) => (
-                    <VStack key={idx} alignItems={"flex-start"}>
-                        <Skeleton w={"full"}>
-                            <Box h={"300px"}></Box>
-                        </Skeleton>
-                    </VStack>
-                ))
+                <Stack align={"center"}>
+                    <Skeleton height='20px' size={'lg'}/>
+                </Stack>
             ) : (
                 products.map((item) => (
                     <Product key={item.name} item={item}/>

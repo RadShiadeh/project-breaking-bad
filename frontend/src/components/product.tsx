@@ -1,14 +1,23 @@
-import { Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, Divider, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import Item from "./ItemInterface";
-import '../styles/styles.css'
 
-const Product:React.FC<{item: Item}> = ({item}) => {
+const Product: React.FC<{item: Item}> = ({item}) => {
     return(
-        <VStack>
-            <Image className={"fixed-size-image"} src={item.imageURL} alt={item.imageURL} _hover={{ transform: 'scale(1.5)', transition: '0.6s', transformOrigin: 'center' }} cursor={'pointer'}/>
-            <Text _hover={{ transform: 'scale(1.05)', transition: '0.3s' }} cursor={'pointer'}>{item.name}</Text>
-        </VStack>
+        <Card variant={"outline"} maxW={'sm'} flexWrap={'wrap'}>
+            <CardBody>
+                <Box mx={"auto"} width="100%">
+                    <Image src={item.imageURL} alt={item.description} borderRadius={"lg"} />
+                </Box>
+                <Stack mt={6} spacing={3}>
+                    <Heading size={'md'}> {item.name} </Heading>
+                    <Text> type: {item.type}</Text>
+                    <Text> {item.description} </Text>
+                </Stack>
+            </CardBody>
+            <Divider/>
+            <Button variant={"solid"} colorScheme="blue" size={'sm'}> Show More </Button>
+        </Card>
     )
 }
 
