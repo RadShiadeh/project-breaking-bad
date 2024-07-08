@@ -4,7 +4,7 @@ import React from "react";
 
 const About:React.FC = () => {
     return(
-        <Container>
+        <Container maxW={"full"}>
             <Text>About page</Text>
         </Container>
     )

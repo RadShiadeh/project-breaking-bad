@@ -4,8 +4,8 @@ import React from "react";
 
 const HomePage:React.FC = () => {
     return(
-        <Container>
-            <Text>Home page content goes here</Text>
+        <Container maxW={"full"}>
+            <Text width={"100"}>Home page content goes here</Text>
         </Container>
     )
 }

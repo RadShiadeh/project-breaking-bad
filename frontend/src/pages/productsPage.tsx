@@ -5,7 +5,7 @@ import Products from "../components/products";
 
 const ProductsPage:React.FC = () => {
     return(
-        <Container>
+        <Container maxW={"full"}>
             <Products/>
         </Container>
     )

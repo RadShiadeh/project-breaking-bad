@@ -5,9 +5,9 @@ import Navbar from "./navbar";
 
 const PageLayout:React.FC<{children: React.ReactNode}> = ({ children }) => {
     return (
-        <VStack>
+        <VStack width={"100%"}>
             <Navbar/>
-            <Box>
+            <Box width={"100%"}>
                 {children}
             </Box>
         </VStack>
