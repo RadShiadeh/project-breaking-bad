@@ -1,5 +1,5 @@
 interface Item {
-    Id: Number,
+    id: Number,
     name: string,
     description: string,
     type: string,

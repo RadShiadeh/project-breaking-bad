@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Product from "./product";
-import { Grid, Skeleton, Stack } from "@chakra-ui/react";
+import { Grid, Skeleton } from "@chakra-ui/react";
 import axiosInstance from "../api/axiosConfig";
 import Item from "./ItemInterface";
 
-const Products: React.FC = () => {
+const products: React.FC = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [products, setProducts] = useState<Item[]>([]);
 
@@ -22,20 +22,22 @@ const Products: React.FC = () => {
 
         fetchProducts();
     }, []);
-    
+
     return (
-        <Grid templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(5, 1fr)" }} gap={4} width={"100%"}>
+        <Grid templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(5, 1fr)" }} gap={10}>
             {isLoading ? (
-                <Stack align={"center"}>
-                    <Skeleton height='20px' size={'lg'}/>
-                </Stack>
+                products.map((_, idx) => (
+                    <Skeleton key={idx} height="400px">
+                        <div style={{ width: "100%" }}></div>
+                    </Skeleton>
+                ))
             ) : (
                 products.map((item) => (
-                    <Product key={item.name} item={item}/>
+                    <Product key={item.name} item={item} />
                 ))
             )}
         </Grid>
-    )
+    );
 }
 
-export default Products;
+export default products;
