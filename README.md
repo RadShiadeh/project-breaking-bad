@@ -1,1 +1,1 @@
-# project-breaking-bad
+this is a inventory management software, with the backend being written with spring boot java and postgress SQL, with everything setup in a docker container. CRUD API routes, and some dummy items to showcase in the frontend, written with react Typescript
